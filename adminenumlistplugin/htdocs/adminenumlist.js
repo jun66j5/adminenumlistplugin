@@ -125,6 +125,12 @@ jQuery(document).ready(function ($) {
         },
         stop: function(event, ui) { updateValues(ui.item) }
     });
+    // Prevents the event bubbling in order to be able to select the select
+    // widgets in `order` column on Firefox with jQuery UI 1.6
+    $('#enumlist tbody').find('input, select')
+                        .bind('mousedown click', function(event) {
+        event.stopPropagation();
+    });
 
     // When user changes a select value, reorder rows
     $('#enumlist select').change(function (e) {
