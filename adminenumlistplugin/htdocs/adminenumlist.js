@@ -115,8 +115,10 @@ jQuery(document).ready(function ($) {
             // Set the width of header to the dragging item for each column
             // in order to fit the widths to the header columns
             var cells = ui.item.children();
-            var header = $(this).parent().find('thead tr').first();
-            header.children().each(function(idx) {
+            var header = $(this).parent().find('thead tr');
+            if (header.length === 0)
+                return;
+            $(header[0]).children().each(function(idx) {
                 if (idx < cells.length)
                     $(cells[idx]).css('width', $(this).width() + 'px');
             });
