@@ -123,7 +123,7 @@ jQuery(document).ready(function ($) {
                     $(cells[idx]).css('width', $(this).width() + 'px');
             });
         },
-        update: function(event, ui) { updateValues(ui.item) }
+        stop: function(event, ui) { updateValues(ui.item) }
     });
 
     // When user changes a select value, reorder rows
